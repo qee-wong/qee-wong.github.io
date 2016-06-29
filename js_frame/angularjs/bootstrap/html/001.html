@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+    <!-- <link rel="stylesheet" href="../../GoogleCodePrettify/src/github.css" media="screen" title="no title" charset="utf-8"> -->
+    <link rel="stylesheet" href="../../google-code-prettify/sons-of-obsidian.css" media="screen" title="no title" charset="utf-8">
+
+    <script src="../../jslib/jquery.min.js" charset="utf-8"></script>
+    <script src="../js/bootstrap.min.js" charset="utf-8"></script>
+    <!-- <script src="../../GoogleCodePrettify/prettify.js" charset="utf-8"></script> -->
+    <script src="../../google-code-prettify/prettify.js" charset="utf-8"></script>
+
+    <!-- [if lt IE 9]>
+      <script src="../../jslib/html5.js" charset="utf-8"></script>
+    <![endif]-->
+    <style media="screen">
+      p{text-indent: 2em;}
+      body{background: #FFF;}
+      @media (min-width:767px) and (max-width:979px) {body{background: #000;}}
+      p{
+          padding-right: 1px;
+      }
+    </style>
+  </head>
+  <body onload="prettyPrint();">
+      <div class="" style="height:100px;background-color:#def;">
+      </div>
+      <div class="container">
+          <h1 class="page-header">模板</h1>
+      </div>
+
+      <div class="container">
+          <h1 class="page-header">jQuery测试</h1>
+          <div id="hellWorld" class="">
+              dianwo
+          </div>
+          <script type="text/javascript">
+            $(function(){
+                // 当 sayHello 事件触发的时候，显示 message
+                $('#helloWorld').bind('sayHello',function(e, name, message) {
+                    // 动态的输出 message
+                    debugger;
+                    alert(name + ',' + message);
+                });
+
+                // 强制触发 sayHello 的时候，动态指定 message
+                // 注意，trigger的第二个参数是一个 Array，代表 eventHandler第一个参数之后的所有参数
+                $('#hellWorld').trigger('sayHello', [ 'John', 'Hi,I am Alien!' ] );
+            });
+
+          </script>
+      </div>
+
+      <div class="container">
+          <h1 class="page-header">折叠</h1>
+
+          <div class="accordion" id="accordion1">
+              <div class="accordion-group">
+                  <div class="accordion-heading">
+                      <a class="accordion-toggle" href="#collapse1" data-parent="#accordion1" data-toggle="collapse">折叠一</a>
+                  </div>
+
+                  <div class="collapse in" id="collapse1">
+                      <div class="accordion-inner">
+                          文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+                      </div>
+                  </div>
+              </div>
+
+              <div class="accordion-group">
+                  <div class="accordion-heading">
+                      <a class="accordion-toggle" href="#collapse2" data-parent="#accordion1" data-toggle="collapse">折叠二</a>
+                  </div>
+
+                  <div class="collapse " id="collapse2">
+                      <div class="accordion-inner">
+                          文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+                      </div>
+                  </div>
+              </div>
+
+              <div class="accordion-group">
+                  <div class="accordion-heading">
+                      <a class="accordion-toggle" href="#collapse3" data-parent="#accordion1" data-toggle="collapse">折叠三</a>
+                  </div>
+
+                  <div class="collapse " id="collapse3">
+                      <div class="accordion-inner">
+                          文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <h1 class="page-header">工具提示</h1>
+          <a href="#" rel="tooltip" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on top">Tooltip on top</a>
+
+          <p><a title="这是一个提示信息" rel="tooltip" href="#">Tooltip</a></p>
+
+          <p><a title="这是标题" data-content="这是提示的主要内容" rel="popover" href="#">Popover</a></p>
+      </div>
+
+      <div class="container">
+          <h1 class="page-header">对话框</h1>
+
+          <a href="#login" data-toggle="modal" class="btn btn-primary">登录</a>
+
+          <div class="modal hide fade" id="login">
+              <div class="modal-header">
+                  <a href="#" class="close" data-dismiss="modal">×</a>
+                  <h3>用户登录</h3>
+              </div>
+
+          <div class="modal-body">
+
+
+          <form class="form-horizontal" action="index.html" method="post">
+              <div class="control-group">
+                  <label for="username" class="control-label">用户名</label>
+                  <div class="controls">
+                      <input type="text" name="username" value="">
+                  </div>
+              </div>
+              <div class="control-group">
+                  <label for="password" class="control-label">密码</label>
+                  <div class="controls">
+                      <input type="text" name="password" value="">
+                  </div>
+              </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-primary" name="button">登录</button>
+          </div>
+          </div>
+
+
+      </div>
+      <div class="container">
+          <h1 class="page-header">缩略图</h1>
+          <ul class="thumbnails">
+              <li class="span3"><a class="thumbnail" href="#"><img src="http://placehold.it/260x180" alt="" /></a></li>
+              <li class="span3"><a class="thumbnail" href="#"><img src="http://placehold.it/260x180" alt="" /></a></li>
+              <li class="span3"><a class="thumbnail" href="#"><img src="http://placehold.it/260x180" alt="" /></a></li>
+              <li class="span3"><a class="thumbnail" href="#"><img src="http://placehold.it/260x180" alt="" /></a></li>
+
+              <li class="span6"><a class="thumbnail" href="#"><img src="http://placehold.it/520x380" alt="" /></a></li>
+              <li class="span6"><a class="thumbnail" href="#"><img src="http://placehold.it/520x180" alt="" /></a></li>
+              <li class="span3"><a class="thumbnail" href="#"><img src="http://placehold.it/260x180" alt="" /></a></li>
+              <li class="span3"><a class="thumbnail" href="#"><img src="http://placehold.it/260x180" alt="" /></a></li>
+          </ul>
+
+      </div>
+      <div class="container">
+          <h1 class="page-header">提示信息 <small>he</small></h1>
+          <div class="alert alert-success">
+              <a href="#" class="close" data-dismiss="alert" > <span>×</span></a>
+              <h4>提示</h4>
+              舒服舒服舒服舒服舒服舒服舒服舒服舒服舒服舒服舒服舒服舒服
+          </div>
+      </div>
+      <div class="container">
+          <h1 class="page-header">导航路径与分页器 <small>面包屑</small></h1>
+          <ul class="breadcrumb">
+              <li><a href="#">首页</a> <span class="divider">/</span></li>
+              <li><a href="#">Library</a> <span class="divider">/</span></li>
+              <li class="active">Data</li>
+            </ul>
+
+          <ul class="breadcrumb">
+              <li><a href="#">首页</a><span class="divider">/</span></li>
+              <li class="active">产品列表</li>
+          </ul>
+
+          <div class="pagination">
+          <ul>
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">6</a></li>
+          </ul>
+          </div>
+
+          <ul class="pager">
+              <li class="previous"><a href="#">上一页</a></li>
+              <li class="next"><a href="#">下一页</a></li>
+          </ul>
+      </div>
+
+      <div class="container">
+          <h1 class="page-header" >选项卡</h1>
+          <div class="tabbable tabs-left">
+              <ul class="nav nav-tabs">
+                  <li class="active"> <a href="#tab1" data-toggle="tab">1111</a></li>
+                  <li> <a href="#tab2" data-toggle="tab">2222</a></li>
+                  <li> <a href="#tab3" data-toggle="tab">3333</a></li>
+              </ul>
+
+              <div class="tab-content">
+                  <div id="tab1" class="tab-pane active">
+                      <p>sdfsfsfsf</p>
+                  </div>
+                  <div id="tab2" class="tab-pane">
+                      <p>sd2222222222</p>
+                  </div>
+                  <div id="tab3" class="tab-pane">
+                      <p>sdf333333</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <h1 class="page-header">导航</h1>
+          <div class="navbar navbar-fixed-top">
+              <div class="navbar-inner">
+                  <div class="container">
+                      <a href="#" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </a>
+                      <a href="#" class="brand">Bootstrap</a>
+                      <div class="nav-collapse">
+                          <ul class="nav">
+                              <li class="active"><a href="#">首页</a></li>
+                              <li><a href="#">项目一</a></li>
+                              <li class="dropdown">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">项目二
+                                      <span class="caret"></span>
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#">黑体</a></li>
+                                      <li><a href="#">宋体</a></li>
+                                      <li><a href="#">仿宋</a></li>
+                                  </ul>
+
+                              </li>
+                          </ul>
+                          <form class="navbar-search" action="index.html" method="post">
+                              <input type="text" class="search-query" name="name" value="">
+                          </form>
+                          <ul class="nav pull-right">
+                              <li><a href="#">登录</a></li>
+                              <li class="divider-vertical"></li>
+                              <li><a href="#">注册</a></li>
+                          </ul>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+      <div class="container">
+          <h1 class="page-header">按钮 <small>群组</small> </h1>
+          <div class="btn-toolbar">
+              <div class="btn-group">
+                  <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">字体 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#">黑体</a></li>
+                      <li><a href="#">宋体</a></li>
+                      <li><a href="#">仿宋</a></li>
+                  </ul>
+              </div>
+
+              <div class="btn-group">
+                  <a href="#"class="btn">字体</a>
+                  <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#">黑体</a></li>
+                      <li><a href="#">宋体</a></li>
+                      <li><a href="#">仿宋</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="btn-toolbar">
+              <div class="btn-group">
+                  <button class="btn" type="button" name="button">右对齐</button>
+                  <button class="btn" type="button" name="button">居中</button>
+                  <button class="btn" type="button" name="button">居中</button>
+                  <button class="btn" type="button" name="button">居中</button>
+                  <button class="btn" type="button" name="button">左对齐</button>
+              </div>
+
+              <div class="btn-group">
+                  <button class="btn" type="button" name="button">右对齐</button>
+                  <button class="btn" type="button" name="button">居中</button>
+                  <button class="btn" type="button" name="button">居中</button>
+                  <button class="btn" type="button" name="button">居中</button>
+                  <button class="btn" type="button" name="button">左对齐</button>
+              </div>
+          </div>
+
+
+      </div>
+
+      <a href="#" class="btn btn-primary">
+          <i class="icon-comment icon-white"></i> a标签
+      </a>
+      <button type="button" class="btn-small btn btn-primary" name="button">
+          <i class="icon-shopping-cart icon-white"></i> button
+      </button>
+
+      <div class="container">
+          <h1 class="page-header">表单</h1>
+          <form class="form-horizontal" action="index.html" method="post">
+          <fieldset>
+              <legend>用户登录</legend>
+          <div class="control-group">
+              <label class="control-label" for="username">用户名</label>
+              <div class="controls">
+                  <input type="text" id="username" name="username" value="">
+                  <p>请输入您要注册的用户</p>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="password">密码</label>
+              <div class="controls">
+                  <input type="text" id="password" name="password" value="">
+                  <p>请输入您要设置的密码</p>
+              </div>
+          </div>
+          </fieldset>
+          <div class="form-actions">
+              <button type="submit" class="btn btn-primary" name="button">登录</button>
+          </div>
+          </form>
+          <label for="somewhere">想去的地方</label>
+          <select id="somewhere" class="" name="" >
+              <option value="italy">意大利</option>
+              <option value="US">美国</option>
+              <option value="UK">英国</option>
+          </select>
+
+
+          <label for="">复选框</label>
+          <label for="" class="checkbox inline">
+          <input type="checkbox" name="cms" value="wordpress">wordpress</label>
+          <label for="" class="checkbox inline">
+          <input type="checkbox" name="cms" value="wordpress">wordpress</label>
+
+          <label for="" class="checkbox inline">
+          <input type="checkbox" name="cms" value="wordpress">wordpress</label>
+
+
+
+          <label for="">您的性别</label>
+          <label for="" class="radio inline">
+          <input type="radio" name="gender" value="male">男</label>
+          <label for="" class="radio inline">
+          <input type="radio" name="gender" value="female">女</label>
+          <label for="" class="radio inline">
+          <input type="radio" name="gender" value="other">其他</label>
+
+          <br />
+          <div class="input-prepend input-append">
+              <span class="add-on">&yen;</span>
+              <input type="text" name="name" value="">
+              <span class="add-on">.00</span>
+          </div>
+          <div class="input-append">
+              <input type="text" name="name" value=""><button class="btn" type="button" name="button">搜索</button>
+          </div>
+
+          <br/>
+          <label for="username">用户名：</label>
+          <input id="username" class="span3"  type="text" name="name" value="" placeholder="请输入用户名">
+          <p class="help-block">
+              帮助文字
+          </p>
+      </div>
+      <br/>
+      <div class="container">
+          <table class="table table-striped table-condensed table-bordered">
+              <thead>
+                  <tr>
+                      <th>1111</th>
+                      <th>2222</th>
+                      <th>1111</th>
+                      <th>2222</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>11111</td>
+                      <td>22222</td>
+                      <td>11111</td>
+                      <td>22222</td>
+                  </tr>
+                  <tr>
+                      <td>11111</td>
+                      <td>22222</td>
+                      <td>11111</td>
+                      <td>22222</td>
+                  </tr>
+                  <tr>
+                      <td>11111</td>
+                      <td>22222</td>
+                      <td>11111</td>
+                      <td>22222</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="container">
+          <p>
+              为 <code>&lt;h1&gt;</code>  描述  <code>.page-headersdfsf</code>
+          </p>
+          <pre class="prettyprint linenums">
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;loadxmldoc.js&quot;&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+xmlDoc=&lt;<font color="blue">a&nbsp;href="dom_loadxmldoc.asp"&gt;loadXMLDoc&lt;/a&gt;</font>(&quot;books.xml&quot;);
+document.write(&quot;xmlDoc is loaded, ready for use&quot;);
+&lt;/script&gt;
+&lt;li class="test"&gt;drupal &lt;/li&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </pre>
+      </div>
+      <div class="container">
+          <h1 class="page-header">列表<small>无序列表</small></h1>
+          <h2>无序列表</h2>
+          <ul>
+              <li>drupal</li>
+              <li>joomla</li>
+              <li>wordpass</li>
+          </ul>
+          <h2>有序列表</h2>
+          <ol>
+              <li>drupal</li>
+              <li>joomla</li>
+              <li>wordpass</li>
+          </ol>
+
+          <h2>描述</h2>
+          <dl class="dl-horizontal">
+             <dt>drupal</dt>
+             <dd>描述描述描述描述描述</dd>
+             <dt>drupal</dt>
+             <dd>描述描述描述描述描述</dd>
+             <dt>drupal</dt>
+             <dd>描述描述描述描述描述</dd>
+
+          </dl>
+      </div>
+      <div class="container">
+          内容
+          <h1 class="page-header">CSS<small>常用的 css</small></h1>
+          <p> <abbr class="initialism" title="contant management system">简称dddfdf</abbr>
+              文本文字 文本文字 <strong>fsf中午那个sfasf</strong>文本文字 文本文字 文本文字 文本文字 文本文字 文本文字
+               文abbr本文字 文本文字 文本文字 文本文字 文本文字 <em>sfsfds</em>文本文字 文本文字
+                文本文字 文本文字
+          </p>
+          <blockquote cite="http://www.baidu.com" class="pull-right">
+              <p>文本文字 文本文字 文本文字 文本文字 <em>sfsfds</em>文本文字 文本文字
+                  文本文字 文本文字citecitecitecitecitecitecitecitecitecitecitecitecite 文本文字 文本文字 <em>sfsfds</em>文本文字 文本文字
+                  文本文字 文本文字 文本文字 文本文字 <em>sfsfds</em>文本文字 文本文字
+                  文本文字 文本文字 文本文字 文本文字 <em>sfsfds</em>文本文字 文本文字
+                  文本文字 文本文字
+              </p><small>来自<cite>零号</cite></small>
+          </blockquote>
+      </div>
+      <div class="container-fluid">
+          这是
+          <div class="visible-desktop">桌面</div>
+          <div class="visible-phone">手机</div>
+          <div class="visible-tablet">平板</div>
+      </div>
+      <div class="">
+          这是一个时间 on <time>2016-06-13</time>
+      </div>
+    <div class="container-fluid">
+      <h1 class="page-header">Hello, world! <small>sdfsdf</small></h1>
+      <div class="row-fluid">
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+        <div class="span1">
+          <h6 class="page-header">标题1</h6>
+          <p>标题一文字消息</p>
+        </div>
+
+      </div>
+
+    <div class="row-fluid">
+      <div class="span4">
+        <h2 class="page-header">标题1</h2>
+        <p>标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息
+        标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息
+      标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息</p>
+      </div>
+      <div class="span4 hidden-phone">
+        <h2 class="page-header">标题2</h2>
+        <p>标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息
+        标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息
+      标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息</p>
+      </div>
+      <div class="span4 visible-desktop">
+        <h2 class="page-header">标题3</h2>
+        <p>标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息
+        标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息
+      标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息标题一文字消息</p>
+      <div class="row-fluid">
+        <div class="span6">
+          <p>标题一文字消息标题一文字消息标题一文字消息</p>
+        </div>
+        <div class="span6">
+          <p>标题一文字消息标题一文字消息标题一文字消息标题一文字消息</p>
+        </div>
+
+      </div>
+      </div>
+    </div>
+    </div>
+
+
+
+<script type="text/javascript">
+    $("a[rel=tooltip]").tooltip();
+    $("a[rel=popover]").popover();
+
+</script>
+  </body>
+</html>
