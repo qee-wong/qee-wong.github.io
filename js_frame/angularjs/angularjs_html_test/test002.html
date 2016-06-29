@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="myApp" >
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">自定义指令</h1>
+        <runoob-directive></runoob-directive>
+        <script type="text/javascript">
+        var app = angular.module("myApp", []);
+        app.directive("runoobDirective", function() {
+        return {
+            template : "<h1>自定义指令w!12ww</h1>"
+        };
+        });
+        </script>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

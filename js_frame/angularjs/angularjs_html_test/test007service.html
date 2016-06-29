@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+  <style media="screen">
+
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">AngularJS 服务(Service)
+            <small>AngularJS 中你可以创建自己的服务，或使用内建服务。</small>
+        </h1>
+        <blockquote cite="http://" class="form-actions">
+            在 AngularJS 中，服务是一个函数或对象，可在你的 AngularJS 应用中使用。
+            AngularJS 内建了30 多个服务。
+            有个 $location 服务，它可以返回当前页面的 URL 地址。
+        </blockquote>
+        <div class="" ng-controller="customersCtrl">
+            {{myUrl}}<br />
+            {{myWelcome}} <br />
+            {{myHeader}} <br />
+            {{theTime}} <br />
+            <ul>
+                <li ng-repeat="x in names">
+                    {{x.Name + ', ' + x.Country}}
+                </li>
+            </ul>
+        </div>
+        <div class="" ng-controller="myHexafy">
+            {{hex}}
+            <br />
+            {{255 | myFormat}}
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl',function($scope,$location,$http,$timeout,$interval){
+         $scope.myUrl = $location.absUrl();
+         $scope.myHeader = "hello world";
+         $http.get("welcome.htm").then(function(response){
+             $scope.myWelcome = response.data;
+         });
+         $timeout(function(){
+             $scope.myHeader = "how are you today ?";
+         },2000);
+         $scope.theTime = new Date().toLocaleTimeString();
+         $interval(function(){
+             $scope.theTime = new Date().toLocaleTimeString();
+         },1000);
+
+         $http.get("Customers_JSON").success(function(response){
+             $scope.names = response.records;
+         });
+    });
+
+    app.service('hexafy',function(){
+        this.myFunc = function(x){
+            return x.toString(16);
+        }
+    });
+
+    app.controller('myHexafy',function($scope,hexafy){
+        $scope.hex = hexafy.myFunc(2555);
+    });
+
+    app.filter('myFormat',['hexafy',function(hexafy){
+        return function(x){
+            return hexafy.myFunc(x);
+        };
+    }]);
+
+</script>
+<!-- <script src="js/namesController.js" charset="utf-8"></script> -->
+</html>

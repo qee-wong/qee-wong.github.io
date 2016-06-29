@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">AngularJS 事件
+            <small>AngularJS 有自己的 HTML 事件指令。</small>
+        </h2>
+        <blockquote cite="http://" class="form-actions">
+            ng-click 指令定义了 AngularJS 点击事件。
+        </blockquote>
+        <div class="" ng-controller="customersCtrl">
+            <button ng-click="count = count + 1" type="button" name="button">点我！</button>
+            <p>{{count}}</p>
+            <button ng-click="toggle()" type="button" name="button">>隐藏/显示</button> <p></p>
+            <p ng-hide="myVar">
+                名： <input type="text" ng-model="firstName" value=""> <br />
+                姓： <input type="text" ng-model="lastName" value=""> <br />
+                Full Name : {{firstName + " " + lastName}}
+            </p>
+        </div>
+
+
+
+</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+
+
+    app.controller('customersCtrl',function($scope){
+        $scope.firstName = "Russale",
+        $scope.lastName = "Crown";
+        $scope.myVar = false;
+        $scope.toggle = function(){
+            $scope.myVar = !$scope.myVar;
+        };
+    });
+
+
+</script>
+<!-- <script src="js/namesController.js" charset="utf-8"></script> -->
+</html>

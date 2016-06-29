@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+  <style media="screen">
+      /*input.ng-invalid{
+          background-color: lightblue;
+      }*/
+      input.ng-invalid{
+          background-color: lightblue;
+      }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">验证用户输入</h1>
+        <blockquote cite="http://" class="form-actions">
+            ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error):
+
+        </blockquote>
+        <form class="" name="myForm" action="index.html" method="post">
+            1Email:
+            <input type="email" name="myAddress" ng-model="text" value="">
+            <span ng-show="myForm.myAddress.$error.email">非法Email</span>
+            2Email:
+            <input type="email"  name="myemail" ng-model="myText"  required value="">
+
+            <h2>状态：</h2>
+            <span ng-show="myForm.myemail.$valid">{{myForm.myemail.$valid}} $vaild is true</span>
+            <span ng-show="myForm.myemail.$dirty">{{myForm.myemail.$dirty}} $dirty is true</span>
+            <span ng-show="myForm.myemail.$touched">{{myForm.myemail.$touched}} $touched is true</span>
+             {{myForm.myemail.$error}}
+
+        </form>
+         <h1 class="page-header">ng-model 指令</h1>
+         <blockquote class="form-actions" cite="http://">
+             ng-model 指令可以将 <strong>输入域的值</strong>与angular创建的变量绑定。
+         </blockquote>
+         <div class="" ng-controller="myCtrl">
+             名字： <input type="text" ng-model="name" name="name" value=""> <br>
+             <span>{{name}}</span>
+         </div>
+         <script type="text/javascript">
+             var app = angular.module('myApp',[]);
+             app.controller('myCtrl',function($scope){
+                 $scope.name = "Russell Crowe";
+             })
+         </script>
+    </div>
+
+
+</body>
+</html>

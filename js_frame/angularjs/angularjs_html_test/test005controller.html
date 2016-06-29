@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">Controller 控制器</h1>
+        <blockquote cite="http://" class="form-actions">
+            AngularJS 应用程序被控制器控制。
+            ng-controller 指令定义了应用程序控制器。
+            控制器是 JavaScript 对象，由标准的 JavaScript 对象的构造函数 创建。
+        </blockquote>
+        <div class="" ng-controller="myCtrl">
+            <h3>{{carname | lowercase}}</h3>
+            <h3>{{test |uppercase}}</h3>
+            <input type="text" ng-model="carname" name="name" value="">
+            <input type="text" ng-model="test" name="lastname" value="">
+        </div>
+        <div class="" ng-controller="secondCtrl">
+            <h3>{{lastname()}}</h3>
+        </div>
+        <div  class="" ng-init="quantity=1;price=5;"  >
+            <input type="number" ng-model="quantity" name="name" value="">
+            <input type="number" ng-model="price" name="name" value="">
+            <p>
+                总价 = {{(quantity*price) | currency}}
+            </p>
+        </div>
+        <script type="text/javascript">
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope,$rootScope){
+                $scope.carname = "Russell Ira Crowe";
+                $rootScope.test = "test";
+            });
+            app.controller('secondCtrl',function($scope,$rootScope){
+                $scope.firstName = "Russell";
+                $scope.lastName = "Crowe";
+                $scope.lastname = function(){
+                    return $scope.firstName + " " + $scope.lastName;
+                }
+            });
+        </script>
+    </div>
+
+
+</body>
+</html>
