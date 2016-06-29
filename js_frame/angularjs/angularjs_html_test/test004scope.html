@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">Scope 作用域</h1>
+        <blockquote cite="http://" class="form-actions">
+            Scope(作用域) 是应用在 HTML (视图) 和 JavaScript (控制器)之间的纽带。
+            Scope 是一个对象，有可用的方法和属性。
+            Scope 可应用在视图和控制器上。 <br>
+            ng-model 指令可以将 <strong>输入域的值</strong>与angular创建的变量绑定。
+        </blockquote>
+        <div class="" ng-controller="myCtrl">
+            <h3>{{carname}}</h3>
+            <h3>{{lastname}}</h3>
+            <input type="text" ng-model="carname" name="name" value="">
+            <input type="text" ng-model="lastname" name="lastname" value="">
+        </div>
+        <div class="" ng-controller="secondCtrl">
+            <h3>{{lastname}}</h3>
+        </div>
+        <script type="text/javascript">
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope,$rootScope){
+                $scope.carname = "Russell Ira Crowe";
+                $rootScope.lastname = "Refsnse2";
+            });
+            app.controller('secondCtrl',function($scope,$rootScope){
+
+            });
+        </script>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+  <style media="screen">
+  .duan{
+    width:260px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-header">filter 过滤器</h1>
+        <blockquote cite="http://" class="form-actions">
+            过滤器可以使用一个管道字符（|）添加到表达式和指令中。
+        </blockquote>
+        <div class="" ng-controller="namesCtrl">
+            <ul>
+                <li ng-repeat="x in names | orderBy:'country'">
+                    {{x.name + ', ' + x.country}}
+                </li>
+            </ul>
+            <table>
+                <thead>
+                    <th>违法代码</th>
+                    <th>违法时间</th>
+                    <th>违法地点</th>
+                    <th>执勤民警</th>
+                    <th>处理机关名称</th>
+                    <th>罚款金额</th>
+                    <th>交款状态</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in names">
+                        <td>
+                            {{x.name}}
+                        </td>
+                        <td>
+                            {{x.country}}
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="" ng-controller="nameCtrl">
+            <p>
+                <input type="text" ng-model="test" name="name" value="">
+            </p>
+            <ul>
+                <li ng-repeat="x in names | filter:test | orderBy:'country'">
+                    {{(x.name | uppercase) + ', ' + x.country}}
+                </li>
+            </ul>
+        </div>
+        <div class="duan" title="轻轻松松制作div+css截取字符段在规定长度，超出部分用。。。代替！ ">
+              轻轻松松制作div+css截取字符段在规定长度，超出部分用。。。代替！
+        </div>
+
+    </div>
+
+
+</body>
+<script src="js/namesController.js" charset="utf-8"></script>
+</html>

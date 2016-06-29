@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"  ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <!-- <link rel="stylesheet" href="../angular-1.4.8/docs/components/bootstrap-3.1.1/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8" >
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" media="screen" title="no title" charset="utf-8" >
+  <script src="../angular-1.4.8/angular.js"></script>
+  <script src="../angular-1.4.8/angular-animate.js" charset="utf-8"></script>
+<style media="screen">
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div ng-controller="formCtrl" class="">
+            {{number}} <br> {{number * number}}
+            <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
+         <button ng-click = "square()">X<sup>2</sup></button>
+         <p>结果: {{result}}</p>
+        </div>
+    </div>
+
+
+
+</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', ['ngAnimate']);
+    app.config(function($provide){
+        $provide.provider('MathService',function(){
+            this.$get = function(){
+                var factory = {};
+                factory.multiply = function(a,b){
+                    return a * b;
+                }
+                return factory;
+            };
+        });
+    });
+
+
+    app.value("defaultInput",5);
+    app.factory('MathService',function(){
+        var factory = {};
+        factory.multiply = function(a,b){
+            return a * b;
+        }
+        return factory;
+    });
+
+    app.service('CalcService',function(MathService){
+        this.square = function(a){
+            return MathService.multiply(a,a);
+        }
+    });
+
+    app.controller('formCtrl',function($scope,CalcService,defaultInput){
+        $scope.number = defaultInput;
+        $scope.result = CalcService.square($scope.number);
+        $scope.square = function(){
+            $scope.result = CalcService.square($scope.number);
+        }
+    });
+
+
+
+</script>
+<!-- <script src="js/namesController.js" charset="utf-8"></script> -->
+</html>
