@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width">
   <link rel="canonical" href="http://backbonejs.org" />
   <title>Backbone.js</title>
-  
 </head>
 <body>
 <input id="function_filter" placeholder="Filter" type="text" autofocus="">
@@ -30,5 +29,72 @@
   _.bindAll(divView,'onClick');
   $(divView.ele).bind('click',divView.onClick);
 
+  var tmp = _.keys({name:"陶国荣",sex:"男",email:"tao_guo_rong@163.com"});
+  console.log(tmp[1]);
+
+  $(function(){
+    //定义模型类
+    var Test = Backbone.Model.extend({
+      defaults:{content:''}
+    });
+
+    //创建集合模型类
+    var TestList = Backbone.Collection.extend({model:Test});
+
+    //向模型添加数据
+    var data = new TestList({content:'hello,backbone!'});
+
+    //创建View对象
+    var TestView = Backbone.View.extend({
+
+      el:$('body'),
+      initialize:function(){
+        $('#divTip').html(data.models[0].get('content'));
+      }
+    });
+
+    //实例化view对象
+    window.App = new TestView;
+
+    var datau = {name:'陶国荣',email:'tao_guo_rong@163.com'};
+
+    var object = _(datau);
+    console.log(object.value().name + '_' + object.value().email);
+
+    var arr = [105,16,'37a'];
+    var objecta = _(arr);
+    console.log('max:'+objecta.max() + 'min:'+objecta.min() );
+
+    //underscroe
+    _.each([1,2,3,4,5,6],function(n){if(!(n%2)) console.log(n);});
+
+    var arr = _.map([1,2,3,4,5,6],function(n){if(!(n%2)) return n;});
+
+    for (var i = 0; i < arr.length; i++) {
+      if(arr[i] != undefined)
+        console.log(i + '->' +arr[i]);
+    }
+    
+
+    var blnfind = _.find([2,4,6,8,10,12],function(n){return (!(n%2==0));});
+    console.log(blnfind != undefined ? blnfind : '未找到');
+
+    var arrfind = _.filter([1,4,3,6,5,8],function(n){return (!(n%2 == 0));});
+    console.log(arrfind.length != 0 ? arrfind : '未找到');
+
+    var max = _.max([30,50,80]);console.log(max);
+
+    var stu = [
+      {name:'张三',score:40},
+      {name:'张三',score:30},
+      {name:'张三',score:50}
+    ];
+
+    var min = _.min(stu,function(n){return n.score;});
+    console.log(min);
+
+    
+
+  });
 
 </script>
