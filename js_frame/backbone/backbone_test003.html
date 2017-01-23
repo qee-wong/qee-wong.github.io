@@ -6,23 +6,109 @@
   <meta name="viewport" content="width=device-width">
   <link rel="canonical" href="http://backbonejs.org" />
   <title>Backbone.js</title>
-</head>
-<body>
-<input id="function_filter" placeholder="Filter" type="text" autofocus="">
-<div id="divTip">002 test</div>
-   
-
-</body>
-<script src="test/vendor/underscore.js"></script>
+  <script src="test/vendor/underscore.js"></script>
 <script src="test/vendor/jquery.js"></script>
 <script src="docs/js/jquery.lazyload.js"></script>
 <script src="test/vendor/json2.js"></script>
 <script src="backbone.js"></script>
+
+</head>
+<body>
+<input id="function_filter" placeholder="Filter" type="text" autofocus="">
+<div id="divTip">002 test</div>
+
+<script type="text/template" id= 'tpl'>
+  <% var intSumScore = 0,intAveScore=0;
+     for(var i=0;i< list.length;i++){ 
+  %>
+    <% var item = list[i] %>
+
+    <li>
+      <span><%=item.StuId  %></span>
+      <span><%=item.Name  %></span>
+      <span><%=item.Sex  %></span>
+      <span><%=item.Score  %></span>
+    </li>
+
+    <% 
+      intSumScore +=parseInt(item.Score)
+      intAveScore = intSumScore/list.length;
+      }
+    %>
+
+    <li>
+      <span>平均分：</span>
+      <span><%=intAveScore %></span>
+      <span>总分：</span>
+      <span><%=intSumScore%></span>
+    </li>
+</script>
+
+<ul id="element">
+  <li>
+    <span>学号</span>
+    <span>姓名</span>
+    <span>性别</span>
+    <span>总分</span>
+  </li>
+</ul>
+
+</body>
 <script src="docs/search.js"></script>  
+<style type="text/css">
+  
+<style type="text/css">
+
+  body{font-size:13px;}
+  ul{list-style-type: none;
+    padding:0px;margin:0px;width:360px;}
+  li:first-child span{float:left;border-bottom:solid 1px #ccc;background-color: #eee;font-weight: blod}
+  ul li span{width: 80px;text-align: left;float: left;padding: 0px,5px;border-bottom: dashed 1px #ccc;line-height: 28px;}
+
+
+
+
+
+</style>
+
 </html>
+
+
 <script>
 $(function(){
-  
+  var intdef = _.random(10);
+  var intnum = _.random(-10,0);
+  console.log('两个随机数分别为：' + intdef  + ',' + intnum);
+
+  var stresc = _.escape("email/163'tao'<guo>&rong-_.!~×");
+  var strunesc = _.unescape(stresc);
+
+  console.log('编码后：' + stresc);
+  console.log('编码前：' + strunesc);
+
+  var tpl = _.template('<% console.log(str) %>');
+  tpl({str:'姓名：陶国荣'});
+
+  var tpl=_.template('<%=str%>');
+  console.log(tpl({str:'xingming:taoguorong'}));
+
+  var tpl = _.template('<%- str %>');
+  console.log(tpl({str:"姓/'名'&:<陶>国荣"}));
+
+  var ele = $('#element'),tpl = $('#tpl').html();
+
+  var data = {
+    list:[
+      {StuId:'s0101',Name:'刘晓明',Sex:'男',Score:'345'},
+      {StuId:'s0102',Name:'李青岩',Sex:'女',Score:'445'},
+      {StuId:'s0103',Name:'刘明',Sex:'男',Score:'245'},
+      {StuId:'s0104',Name:'晓明',Sex:'男',Score:'415'}
+    ]
+  }
+
+  var compiled = _.template(tpl);
+  var html = compiled(data);
+  ele.append(html);
 
 });
 
