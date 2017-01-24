@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="canonical" href="http://backbonejs.org" />
+  <title>Backbone.js</title>
+  <script src="test/vendor/underscore.js"></script>
+<script src="test/vendor/jquery.js"></script>
+<script src="docs/js/jquery.lazyload.js"></script>
+<script src="test/vendor/json2.js"></script>
+<script src="backbone.js"></script>
+
+</head>
+<body>
+<input id="function_filter" placeholder="Filter" type="text" autofocus="">
+<div id="divTip">002 test</div>
+
+ 
+
+</body>
+<script src="docs/search.js"></script>  
+ 
+ 
+
+
+</html>
+
+
+<script>
+
+
+var person = Backbone.Model.extend({
+  defaults:{
+    name:'',
+    sex:''
+  }
+});
+
+var man = new person();
+man.on('change',function(){console.log('对象的默认值变了');});
+man.set('name','');
+console.log(man);
+
+
+man.on('change:sex',function(model,value){
+  console.log('您修改了sex，最新是：'+value);
+  console.log(model);
+})
+man.set('sex','男');
+//上面说明先触发属性事件，然后触发默认的change事件
+//
+var student = Backbone.Model.extend({
+  defaults:{
+    name:'',
+    sex:'女',
+    age:32,
+    score:120
+  }
+});
+
+var studentman = new student();
+
+studentman.on('change:age',function(model,value){
+  var objAttr = model.previousAttributes();
+  var oldage = objAttr.age;
+  if (value > oldage) {console.log('您又年长了'+(value - oldage)+'岁');}
+  else if(value < oldage){console.log('您又年轻了' +(oldage - value)+ '岁');}
+  else console.log('您的年龄没有变化');
+});
+
+studentman.on('change:score',function(model,value){
+  var oldscore = model.previous('score');
+  if (value > oldscore) {console.log('您比上次进步了' +(value-oldscore)+ '分');}
+  else if(value < oldscore){console.log('您比上次进步了' +(oldscore - value)+ '分');}
+  else console.log('您的成绩没有变化');
+});
+
+
+
+studentman.set({'score':200,'age':36})
+
+//on可以绑定多个事件  Obj.on(eventName1 eventName2,function)
+//--------------------------------------------------------
+
+var people = Backbone.Model.extend({
+  defaults:{
+    name : '',
+    sex : '女',
+    age : 32,
+    score : 120
+  }
+});
+
+var one_person = new people();
+var objEvent = {
+  'change:score' : score_change,
+  'change:age' : age_change
+}
+
+one_person.on(objEvent);
+function score_change(model,value){
+  var oldscore = model.previous('score');
+  var newscore = model.get('score');
+  if (oldscore != newscore) {console.log('score原值:'+oldscore +'，新值：'+newscore);}
+}
+
+function age_change(model,value) {
+  var oldage = model.previous('age');
+  var newage = value;
+  if (oldage != newage) {console.log('age 原值：'+oldage+',新值:'+newage);}
+}
+
+one_person.set({'age':36,'score':200});
+
+//once 方法绑定事件
+
+var person_two = new people();
+var intNum = 0;
+person_two.once('change:age',function(model,value){
+  intNum++;
+  console.log('事件触发次数为:'+intNum);
+  console.log(value);
+});
+
+person_two.set({'age':46});
+person_two.set({'age':416});
+//-----------------------------trigger方法触发事件
+var person_three = new people();
+person_three.on('change_age_sex',function(){
+  console.log('您手动触发一个自定义事件');
+});
+
+person_three.on('change:age',function(model,value){
+  if (value != undefined) {console.log('您修改后的年龄为'+value);}
+  else{console.log('您手动触发了一个年龄修改事件')}
+});
+
+person_three.trigger('change_age_sex');
+person_three.trigger('change:age');
+person_three.set('age',37);
+
+//off 除去绑定事件
+var person_four = new people();
+var m = 0,n = 0;
+var callback_a = function(){m++;console.log('您执行a事件的次数为' + m);}
+
+var callback_b = function(){
+  n++;
+  console.log('您执行b事件的次数为'+n);
+}
+
+person_four.on('event_a',callback_a);
+
+person_four.on('event_b',callback_b);
+
+person_four.off('event_a');
+
+person_four.trigger('event_a event_b');
+
+person_four.off('event_a event_b');
+person_four.trigger('event_a event_b');
+
+
+</script>
