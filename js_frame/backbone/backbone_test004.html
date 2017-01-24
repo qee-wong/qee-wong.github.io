@@ -16,7 +16,15 @@
 <body>
 <input id="function_filter" placeholder="Filter" type="text" autofocus="">
 <div id="divTip">002 test</div>
-
+<div id="view">
+  <input type="button" value="显示" id="btnShow" />
+  <input type="button" value="隐藏" id="btnHide" />
+</div>
+<div id="Info">
+  姓名：陶国荣<br />
+  性别：男<br />
+  邮箱：tao_guo_rong@163.com
+</div>
  
 
 </body>
@@ -155,12 +163,55 @@ person_four.on('event_a',callback_a);
 
 person_four.on('event_b',callback_b);
 
-person_four.off('event_a');
+person_four.off('event_a',callback_a);
 
 person_four.trigger('event_a event_b');
 
 person_four.off('event_a event_b');
 person_four.trigger('event_a event_b');
 
+//注意：person_four.off();  可以移除对象全部绑定事件。
+//
 
+//listenTo用法   listenToOnce 同once
+
+var person_five = new people();
+var obj = _.extend({},Backbone.Events);
+obj.listenTo(person_five,'change:age',function(model,value){
+  var oldage = model.previous('age');
+  var newage = model.get('age');
+  if (oldage != newage) {console.log(oldage+'   '+newage);}
+});
+
+person_five.set('age',45);
+
+
+//all 事件
+var person_six = new people();
+person_six.on('change:age',function(){console.log('您触发了change:age事件');});
+
+var event_fun = function(){
+  console.log('您触发了change:name 事件');
+}
+
+person_six.on('change:name',event_fun);
+person_six.on('all',function(value){console.log('您触发了all事件中' + value);});
+person_six.set('name','陶国荣');
+person_six.set('age',35);
+
+person_six.trigger('all');
+//
+//
+//
+var InfoView = Backbone.View.extend({
+  el:'#view',
+  events:{
+    'click #btnShow':'ShowInfo',
+    'click #btnHide':'HideInfo'
+  },
+  ShowInfo:function(){$('#Info').show();},
+  HideInfo:function(){$('#Info').hide();}
+});
+
+window.App = new InfoView;
 </script>
