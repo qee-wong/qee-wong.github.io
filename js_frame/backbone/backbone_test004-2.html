@@ -18,16 +18,33 @@
 $(function(){
   var student = Backbone.Model.extend({
     initialize:function(){
+      var intNum=0;
       intNum++;
       console.log('您构建了' + intNum + '个对象');
+    },
+    defaults:{
+      Code : "",
+      Name : "",
+      Score : ""
     }
   });
 
-  var intNum = 0;
+  // var intNum = 0;
   var stuA = new student();
+  stuA.set({
+    Code:'10101',
+    Name:"'陶博文'",
+    Score:"300",
+    Class:"一年级<二>班"
+  });
+  console.log(stuA.get("Name") + "在" +stuA.get("Class"));
+  console.log(stuA.escape("Name") + "在" +stuA.escape("Class"));
+  var pp = stuA.escape("Name") + "在" +stuA.escape("Class");
+  //$('body').append(pp);
   var stuB = new student();
+  console.log(stuA);
 
-  
+
 
 
 });
