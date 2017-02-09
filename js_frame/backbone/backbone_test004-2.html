@@ -21,12 +21,31 @@ $(function(){
       var intNum=0;
       intNum++;
       console.log('您构建了' + intNum + '个对象');
+      this.on('change:Name',function(){
+        var oldname = this.previous("Name");
+        var newname = this.get("Name");
+        if(oldname != newname){
+          console.log("Name 原值：" + oldname +",新值：" + newname);
+        }
+      });
+      this.on('invalid',function(model,error){
+        console.log(error);
+      });
     },
     defaults:{
       Code : "",
       Name : "",
       Score : ""
-    }
+    },
+    PrintLog:function(){
+      console.log(this.get("Name") + " 在 " + this.get("Class") + " 读小学 " );
+      console.log(this.escape("Name") + " 在 " + this.escape("Class") + " 读小学 " );
+    },
+    validate:function(attrs){
+      if(!_.isString(attrs.Name)) return 'name姓名必须是字符！'
+      if(!_.isNumber(attrs.Score)) return 'score分数必须是数字！'
+    },
+    url:"./data2.dat"
   });
 
   // var intNum = 0;
@@ -42,7 +61,34 @@ $(function(){
   var pp = stuA.escape("Name") + "在" +stuA.escape("Class");
   //$('body').append(pp);
   var stuB = new student();
-  console.log(stuA);
+  stuB.set({
+    Code:'10222',
+    Name:"'程晓明'",
+    Score:"200",
+    Class:"er年级<二>班"
+  //},{"validate":true});
+  },{"silent":true});
+  stuB.PrintLog();
+  console.log(stuB.toJSON());
+
+  stuB.unset("Class");
+  console.log(stuB.toJSON());
+  //stuB.clear();
+ // console.log(stuB.toJSON());
+  console.log('------------------------------------------');
+  console.log(stuB.attributes);
+  var redata = stuB.save({
+    Code:'2222222222',
+    Name:"'程222晓明'",
+    Score:4444,
+    Class:"333<二>班"
+  },{
+    success:function(model,response){
+      console.log(response.code);
+    },
+    wait:true 
+  });
+  console.log(redata);
 
 
 
