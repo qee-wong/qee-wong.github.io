@@ -16,7 +16,55 @@
 </html>
 <script>
 $(function(){
-  
+  var student = Backbone.Model.extend({
+    defaults:{
+      Code:"",Name:"",Score:""
+    }
+  });
+
+  var stulist = Backbone.Collection.extend({model:student});
+
+  var stumodels = [{
+    Code:"10104",
+    Name:"周晓敏",
+    Score:"500"
+  },{
+    Code:"10105",
+    Name:"陆明明",
+    Score:"300"
+  },{
+    Code:"10107",
+    Name:"成天好",
+    Score:720
+  }];
+  var stus = new stulist(stumodels);
+  for (var i = 0; i < stus.models.length; i++) {
+    console.log(stus.models[i].toJSON());
+  }
+
+  var stus2 = new Backbone.Collection(stumodels,{model:student});
+
+
+  var student2 = Backbone.Model.extend({
+    defaults:{Code:"",Name:"",Score:0}
+  });
+
+  var stulist2 = Backbone.Collection.extend({
+    model:student2,
+    good:function(){
+      return this.filter(function(stu){
+        return stu.get("Score") > 400;
+      });
+    }
+  });
+
+  var stumodels2 = [{Code:"10104",Name:"周晓敏",Score:"500"},{Code:"10105",Name:"陆明明",Score:"300"},{Code:"10107",Name:"陈天豪",Score:720}];
+
+  var stuss2 = new stulist2(stumodels2);
+  var stug = stuss2.good();
+  for (var i = 0; i < stug.length; i++) {
+    console.log(stug[i].toJSON());
+  }
 
 
 });
