@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="canonical" href="http://backbonejs.org" />
+  <script src="test/vendor/jquery.js"></script>
+  <title>Backbone.js</title>
+  <style type="text/css">
+    .cls_6
+    {
+      font-size: 12px;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="show2" class="cls_6">
+    
+  </div>
+</body>
+</html>
+<script>
+$(function(){
+  var student = Backbone.Model.extend({
+    defaults:{
+      Code:"",
+      Name:"",
+      Score:0
+    }
+  });
+
+  var stus = new student({Code:"10107",Name:"范蠡",Score:750});
+
+  var stusview = Backbone.View.extend({
+    el:'#show2',
+    render:function(){
+      this.el.innerHTML = JSON.stringify(this.model);
+    }
+  });
+  var stuv = new stusview({model:stus});
+  stuv.render();
+
+  var testview = Backbone.View.extend({
+    id:'show',
+    className:'cls_6',
+    render:function(content){
+      this.el.innerHTML = content;
+      //debugger;
+      document.body.appendChild(this.el);
+    }
+  });
+  var test = new testview();
+  test.render("backbone是构建前端MVC的利器");
+});
+
+
+</script>
+<script src="test/vendor/underscore.js"></script>
+<script src="docs/js/jquery.lazyload.js"></script>
+<script src="test/vendor/json2.js"></script>
+<script src="backbone.js"></script>
