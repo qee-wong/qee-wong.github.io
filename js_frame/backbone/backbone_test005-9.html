@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="canonical" href="http://backbonejs.org" />
+  <script src="test/vendor/jquery.js"></script>
+  <title>Backbone.js</title>
+
+
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+$(function(){
+  var student = Backbone.Model.extend({
+    defaults: {
+        Code: "10001",
+        Name: "张三",
+        Score: 100
+    },
+    idAttribute:"Code"
+  });       
+
+  var stulist = Backbone.Collection.extend ({
+    initialize:function(){
+      this.on("add",function(model,response,options){
+        console.log(stus.models[0].toJSON());
+      })
+    },
+    model:student,
+    url:"./create2.php"
+  });
+  var stus = new stulist();
+  stus.create({
+    Code:"10107",
+    Name:"范蠡",
+    Score:750
+  },{
+    wait:true,
+    success:function(model,response,options){
+      debugger;
+      console.log(response.changed.code);
+    }
+  });
+
+ 
+//console.log(stus);
+});
+
+
+</script>
+<script src="test/vendor/underscore.js"></script>
+<script src="docs/js/jquery.lazyload.js"></script>
+<script src="test/vendor/json2.js"></script>
+<script src="backbone.js"></script>
