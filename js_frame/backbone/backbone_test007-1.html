@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width">
+  <link rel="canonical" href="http://backbonejs.org" />
+  <!-- <script src="test/vendor/jquery.js"></script> -->
+  <title>Backbone.js</title>
+  <style type="text/css">
+    body
+    {
+      font-size: 12px;
+    }
+    ul
+    {
+      list-style-type: none;
+      padding:0px;
+      margin:0px;
+      width: 270px;
+    }
+    ul li
+    {
+      margin: 5px 0px;
+    }
+    ul .lh
+    {
+      font-weight: bold;
+      border-bottom: solid 1px #555;
+      height: 23px;
+      line-height: 23px;
+    }
+    ul .lc
+    {
+      border-bottom: dashed 1px #ccc;
+      height: 23px;
+      line-height: 23px;
+    }
+    ul li span
+    {
+      padding-left: 10px;
+      width:80px;
+      float:left;
+    }
+  </style>
+
+</head>
+<body>
+
+ <input type="button" id="btnforward" value="前进" onclick="window.history.forward();" />
+ <a href="7-1-b.html" id="lnkforward">前进</a>
+</body>
+</html>
+<script src="test/vendor/underscore.js"></script>
+<!-- <script src="docs/js/jquery.lazyload.js"></script> -->
+<script src="test/vendor/json2.js"></script>
+<script src="backbone.js"></script>
+<script>
+//----------------------------------------------------
+  
+ 
+   var $obj_wh = window.history;
+  if($obj_wh.length > 2){
+    document.getElementById("lnkforward").style.display = "none";
+  }else{
+    document.getElementById("btnforward").style.display = "none";
+  }
+
+
+ 
+
+
+ 
+</script>
