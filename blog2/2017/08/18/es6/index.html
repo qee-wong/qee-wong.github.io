@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qee-wong.github.io">
-  <title>qw&#39;s blog</title>
+  <title>es6 | qw&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qw&#39;s blog">
-<meta property="og:url" content="https://qee-wong.github.io/index.html">
+  <meta name="description" content="let基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 {   let a = 10;   var b = 1; }  a // ReferenceError: a is not defined. b // 1  上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错">
+<meta name="keywords" content="let">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6">
+<meta property="og:url" content="https://qee-wong.github.io/2017/08/18/es6/index.html">
 <meta property="og:site_name" content="qw&#39;s blog">
+<meta property="og:description" content="let基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 {   let a = 10;   var b = 1; }  a // ReferenceError: a is not defined. b // 1  上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错">
+<meta property="og:updated_time" content="2017-08-18T11:36:02.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qw&#39;s blog">
+<meta name="twitter:title" content="es6">
+<meta name="twitter:description" content="let基本用法ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 {   let a = 10;   var b = 1; }  a // ReferenceError: a is not defined. b // 1  上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错">
   
     <link rel="alternative" href="/atom.xml" title="qw&#39;s blog" type="application/atom+xml">
   
@@ -149,22 +154,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-es6-let" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-es6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog2/2017/08/18/es6-let/">es6-let</a>
+    <h1 class="article-title" itemprop="name">
+      es6
     </h1>
   
 
         
-        <a href="/blog2/2017/08/18/es6-let/" class="archive-article-date">
-  	<time datetime="2017-08-18T11:37:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
+        <a href="/blog2/2017/08/18/es6/" class="archive-article-date">
+  	<time datetime="2017-08-18T11:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
 </a>
         
       </header>
@@ -203,93 +206,85 @@ b // 1
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog2/2017/08/18/es6-let/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://qee-wong.github.io/2017/08/18/es6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-aritcle-qw" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog2/2017/07/05/aritcle-qw/">article-qw</a>
-    </h1>
   
-
-        
-        <a href="/blog2/2017/07/05/aritcle-qw/" class="archive-article-date">
-  	<time datetime="2017-07-05T06:33:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="hexo安装指导"><a href="#hexo安装指导" class="headerlink" title="hexo安装指导"></a>hexo安装指导</h1><h2 id="这是一个hexo本地安装指导"><a href="#这是一个hexo本地安装指导" class="headerlink" title="这是一个hexo本地安装指导"></a>这是一个hexo本地安装指导</h2><ul>
-<li>写在前面的话，需要nodejs基础，并且nodejs环境已安装。</li>
-</ul>
-<ol>
-<li>hexo新版本与旧版本的安装方式有所区别，hexo-cli是3.0后官网推荐的方式。</li>
-<li>官网资料<a href="https://hexo.io/" target="_blank" rel="external">官网地址</a></li>
-<li>blog 介绍<a href="http://blog.csdn.net/u011001084/article/details/51253928" title="这个blog对hexo介绍的还行。" target="_blank" rel="external">hexo使用技巧</a></li>
-<li>通过下面的命令，就可以安装hexo。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div><div class="line">hexo init blog</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div><div class="line">hexo server</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>通过浏览器打开， <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，就出现了我们首页，主题为：landscape。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">这是tags</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog2/2017/07/05/aritcle-qw/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+    <a href="/blog2/2017/07/05/aritcle-qw/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">article-qw</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
 
 
   
+  
+  
+
+  
+
   
 
 
@@ -312,8 +307,8 @@ b // 1
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
