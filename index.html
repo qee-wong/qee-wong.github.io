@@ -112,7 +112,7 @@ $('.page-header').bind('click',function(){$('#qrcode').slideToggle("slow")})
 <!--动态背景-->
 <script color="0,0,255" opacity='0.6' count="200" src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js"></script>
 
-<!-- 音乐播放器 -->
+<!-- 音乐播放器  
 <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <style>
     li {margin: 0em 0;}
@@ -124,10 +124,28 @@ $('.page-header').bind('click',function(){$('#qrcode').slideToggle("slow")})
        border-bottom: none;
 }
 </style>
-<div id="aplayer" class="aplayer" data-id="372713744" data-server="netease" data-type="playlist" data-fixed="true" ></div>
+ <div id="aplayer" class="aplayer" data-id="372713744" data-server="netease" data-type="playlist" data-fixed="true" ></div> 
+ 
+
+
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-<!-- 音乐播放器end -->
+  音乐播放器end -->
+
+
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+	id="60198">
+</meting-js>
+
 
 </body>
 </html>
